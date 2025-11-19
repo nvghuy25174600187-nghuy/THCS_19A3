@@ -1,18 +1,11 @@
-# BAI 2: CHIA KEO CHO HOC SINH
+# Bài 2: Tìm ước chung lớn nhất
 
-# Nhập tổng số kẹo
-tong_keo = int(input("Nhập tổng số kẹo: "))
+def ucln(x, y):
+    while y != 0:
+        (x, y) = (y, x % y)
+    return x
 
-# Nhập số học sinh
-so_hoc_sinh = int(input("Nhập số học sinh: "))
-
-# Tính số kẹo mỗi học sinh nhận
-keo_moi_hs = tong_keo // so_hoc_sinh  # chia lấy nguyên
-
-# Tính số kẹo còn thừa
-keo_con_thua = tong_keo % so_hoc_sinh  # chia lấy dư
-
-# In kết quả
-print("Mỗi học sinh nhận được:", keo_moi_hs, "kẹo")
-print("Số kẹo còn thừa:", keo_con_thua, "kẹo")
-
+# Nhập hai số từ người dùng
+a = int(input("Nhập số thứ nhất: "))
+b = int(input("Nhập số thứ hai: "))
+print(f"ƯCLN của {a} và {b} là: {ucln(a, b)}")

@@ -1,9 +1,17 @@
-so_tien_VND = float(input("Nhập số tiền bằng VNĐ: "))
-ty_gia = 24500
+# Bài 4: Tìm tất cả số nguyên tố nhỏ hơn n
 
-so_tien_USD = so_tien_VND / ty_gia
+def kiem_tra_ngto(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
 
-# Làm tròn đến 2 chữ số thập phân
-so_tien_USD_lam_tron = round(so_tien_USD, 2)
-
-print(f"Số tiền sau khi chuyển đổi sang USD (đã làm tròn): {so_tien_USD_lam_tron} USD")
+# Nhập số từ người dùng
+n = int(input("Nhập số nguyên dương n: "))
+print(f"Các số nguyên tố nhỏ hơn {n} là:")
+for i in range(2, n):
+    if kiem_tra_ngto(i):
+        print(i, end=' ')
+print()

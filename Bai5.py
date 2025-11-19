@@ -1,16 +1,31 @@
-# Nhập dữ liệu
-tien_goc = float(input("Nhập số tiền gửi ban đầu (VNĐ): "))
-lai_suat_nam = float(input("Nhập lãi suất năm (%): "))
+# Bài 5: Tính S1, S2, S3, S4
 
-# Đổi phần trăm sang số thập phân
-lai_suat = lai_suat_nam / 100
+def tinh_s1(n):
+    return (n * (n + 1)) // 2
 
-# Tính lãi đơn
-lai_1_thang = tien_goc * lai_suat * (1/12)
-lai_2_quy = tien_goc * lai_suat * (6/12)
-lai_3_nam = tien_goc * lai_suat * 3
+def tinh_s2(n):
+    if n <= 1:
+        return 1
+    result = 1
+    for i in range(2, n):
+        result *= i
+    return result
 
-# In kết quả
-print("Tiền lãi sau 1 tháng:", round(lai_1_thang, 2), "VNĐ")
-print("Tiền lãi sau 2 quý:", round(lai_2_quy, 2), "VNĐ")
-print("Tiền lãi sau 3 năm:", round(lai_3_nam, 2), "VNĐ")
+def tinh_s3(n):
+    S3 = 0
+    for k in range(1, n + 1):
+        S3 += ((-1) ** (k + 1)) / k
+    return S3
+
+def tinh_s4(n):
+    S4 = 0
+    for k in range(0, n + 1):
+        S4 += k / (k + 2)
+    return S4
+
+# Nhập n từ người dùng
+n = int(input("Nhập n: "))
+print(f"S1 = {tinh_s1(n)}")
+print(f"S2 = {tinh_s2(n)}")
+print(f"S3 = {tinh_s3(n)}")
+print(f"S4 = {tinh_s4(n)}")

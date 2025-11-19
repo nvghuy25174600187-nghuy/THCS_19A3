@@ -1,21 +1,14 @@
-# BAI 1: TINH TONG CHI PHI VA THUE VAT (10%)
+# Bài 1: Kiểm tra số chính phương
 
-# Nhập giá sản phẩm từ bàn phím
-gia_san_pham = float(input("Nhập giá sản phẩm (VNĐ): "))
+def kiem_tra_so_chinh_phuong(num):
+    if num < 0:
+        return False
+    sqrt_num = int(num**0.5)
+    return sqrt_num * sqrt_num == num
 
-# Nhập số lượng mua từ bàn phím
-so_luong = int(input("Nhập số lượng mua: "))
-
-# Tính tổng chi phí
-tong_chi_phi = gia_san_pham * so_luong
-
-# Tính thuế VAT (10%)
-thue_vat = tong_chi_phi * 0.1
-
-# Tính tổng tiền phải trả
-tong_tien = tong_chi_phi + thue_vat
-
-# In kết quả, làm tròn đến 2 chữ số thập phân
-print("Tổng chi phí:", round(tong_chi_phi, 2), "VNĐ")
-print("Thuế VAT (10%):", round(thue_vat, 2), "VNĐ")
-print("Tổng tiền phải trả:", round(tong_tien, 2), "VNĐ")
+# Nhập số từ người dùng
+n = int(input("Nhập số nguyên dương: "))
+if kiem_tra_so_chinh_phuong(n):
+    print(f"{n} là số chính phương.")
+else:
+    print(f"{n} không phải là số chính phương.")
